@@ -1,0 +1,55 @@
+﻿@page
+@model EFDemo.Pages.OstatnioSzukane.IndexModel
+
+@{
+    ViewData["Title"] = "Ostatnio Szukane";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].RokUrodzenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Rok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Person) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RokUrodzenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
